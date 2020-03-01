@@ -12,17 +12,17 @@ $(function() {
             data: newEatState
         }).then(
             function() {
-                console.log("Chanfed devour to", newEats);
+                console.log("Changed devour to", newEats);
                 location.reload();
             }
         );
     });
 
-    $(".delete-burgers").on("click", function(event) {
+    $(".delete-burger").on("click", function(event) {
         event.preventDefault();
         var id = $(this).attr("data-id");
 
-        $.ajax("/api/burger/" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "DELETE"
         }).then(
             function() {
@@ -36,11 +36,11 @@ $(function() {
         event.preventDefault();
 
         var newBurger = {
-            name: $("burg").val().trim(),
+            name: $("#burg").val().trim(),
             devoured: $("[name=devoured]:checked").val().trim()
         };
 
-        $.ajax("api/burger", {
+        $.ajax("/api/burgers/", {
             type: "POST",
             data: newBurger
         }).then(

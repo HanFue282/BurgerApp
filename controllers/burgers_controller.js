@@ -6,7 +6,7 @@ var burger = require("../models/burger");
 
 //Create all the routes to set up a logic with the routes when they are called to GET, POST, PUT, and DELETE.
 router.get("/", function(req, res) {
-    burger.add(function(data) {
+    burger.all(function(data) {
         var burgerObject = {
             burger: data
         };
@@ -19,7 +19,7 @@ router.post("/api/burgers", function(req, res) {
     burger.create([
         "name", "devoured"
     ], [
-        res.body.name, req.body.devoured
+        req.body.name, req.body.devoured
     ], function(result) {
         res.json({ id: result.insertId });
     });
@@ -41,7 +41,7 @@ router.put("/api/burgers/:id", function(req, res) {
     });
 });
 
-router.delete("/api/burger/:id", function(req, res) {
+router.delete("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     burger.delete(condition, function(result) {
