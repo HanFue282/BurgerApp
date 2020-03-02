@@ -1,30 +1,39 @@
-<div class="row">
-    <div class="col-md-5">
-        <h1>BURGERS!</h1>
-
-        <h2>Burgers left to consume!</h2>
-
-        <ul>
-            {{#each burger}}
-                {{#unless devoured}}
-                    {{> burgers/burger-box devoured=true}}
-                {{/unless}}
-            {{/each}}
-        </ul>
+<div class="container">
+    <h1 class="h1" style="color:rgb(255, 0, 0)">Welcome to the BurgerApp!</h1>
+    <center><div class="img"></div></center>
+    <div class="row">
+    <div class="col-md-6">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <center><h2 class="card-title">Burgers served up!</h2></center>
+                <ul class="list-group list-group-flush">
+                    {{#each burger}}
+                        {{#unless devoured}}
+                            {{> burgers/burger-box devoured=true}}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-5">
-        <h2>Burgers are CONSUMED!</h2>
-
-        <ul>
-            {{#each burger}}
-                {{#if devoured}}
-                    {{> burgers/burger-box devoured=false}}
-                {{/if}}
-            {{/each}}
-        </ul>
+    <div class="col-md-6">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <center><h2 class="card-title">Burgers are devoured!</h2></center>
+                <ul class="list-group list-group-flush">
+                    {{#each burger}}
+                        {{#if devoured}}
+                            {{> burgers/burger-box devoured=false}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
-<h2>Create your burger!</h2>
+<center><div class="card form-card" style="width: 30rem;">
+    <div class="card-body">
+<h2 class="card-title">Create your burger!</h2>
 <form class="create-form">
     <div class="form-group">
         <label for="burg">Burger Name:</label>
@@ -37,5 +46,7 @@
         <input type="radio" name="devoured" value="0"> Serve on plate!
     </div>
 
-    <button type="submit">Add burger!</button>
+    <button type="submit" class="btn btn-success">Add burger!</button>
 </form>
+</div></center>
+</div>

@@ -1,11 +1,11 @@
-<li>
+<li class="list-group-item">
     {{name}}
 
-    <button class="change-devoured" data-id="{{id}}" data-neweats="{{devoured}}">
-        {{#if devoured}}CONSUME!{{else}}Cook up burger again{{/if}}
+    <button class="change-devoured btn btn-warning" data-id="{{id}}" data-neweats="{{devoured}}">
+        {{#if devoured}}CONSUME!{{else}}COOK UP!{{/if}}
     </button>
 
-    <button class="delete-burger" data-id="{{id}}">
+    <button class="delete-burger btn btn-danger" data-id="{{id}}">
         DELETE!
     </button>
 </li>
